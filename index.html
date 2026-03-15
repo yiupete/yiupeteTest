@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Math Champions Ontario | JK–Grade 4</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div class="hero__content">
+        <p class="tag">Ontario Math Enrichment • JK to Grade 4</p>
+        <h1>Math Champions Ontario</h1>
+        <p>
+          A competition-based math learning program inspired by high-performance enrichment models,
+          designed for Junior Kindergarten to Grade 4 learners in Ontario.
+        </p>
+        <div class="hero__actions">
+          <a href="#tracks" class="btn btn--primary">Explore Grade Tracks</a>
+          <a href="#arena" class="btn btn--ghost">See Competition Arena</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="section" id="tracks">
+        <h2>Ontario-Aligned Grade Tracks</h2>
+        <p class="section__lead">
+          Each track combines Ontario curriculum strands with accelerated problem solving,
+          logic, and mental-math routines.
+        </p>
+        <div class="grid tracks" id="trackGrid"></div>
+      </section>
+
+      <section class="section section--alt" id="arena">
+        <h2>Competition Arena</h2>
+        <p class="section__lead">
+          Weekly rounds reward effort, strategy, and teamwork—not just speed.
+        </p>
+        <div class="grid arena-grid">
+          <article class="card">
+            <h3>Round Types</h3>
+            <ul>
+              <li>Sprint Round (mental math)</li>
+              <li>Strategy Round (multi-step puzzles)</li>
+              <li>Team Relay (collaborative challenge)</li>
+              <li>Ontario Application Round (real-life word problems)</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Scoring Model</h3>
+            <ul>
+              <li>Accuracy: 60%</li>
+              <li>Reasoning clarity: 20%</li>
+              <li>Persistence bonus: 10%</li>
+              <li>Teamwork / sportsmanship: 10%</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Progression</h3>
+            <ul>
+              <li>House league (in-class)</li>
+              <li>Campus finals (monthly)</li>
+              <li>Regional cup (each term)</li>
+              <li>Ontario Junior Math Open (annual showcase)</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="leaderboard">
+        <div class="leaderboard-header">
+          <div>
+            <h2>Live Leaderboard (Sample)</h2>
+            <p class="section__lead">Celebrate growth mindset with visible progress markers.</p>
+          </div>
+          <button class="btn btn--primary" id="shuffleScores">Simulate New Round</button>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Rank</th>
+                <th>Team</th>
+                <th>Division</th>
+                <th>Points</th>
+              </tr>
+            </thead>
+            <tbody id="leaderboardBody"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="section section--alt" id="schedule">
+        <h2>12-Week Competition Season</h2>
+        <div class="timeline" id="timeline"></div>
+      </section>
+    </main>
+
+    <footer>
+      <p>
+        Built for Ontario families and schools seeking a healthy, motivating, and rigorous
+        mathematics competition environment for young learners.
+      </p>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
