@@ -4,8 +4,6 @@ A lightweight front-end concept for a competition-based math program aligned wit
 
 ## Highlights
 - Grade-track overview for JK/SK through Grade 4.
-- New JK/SK starter course with units and a daily routine.
-- Interactive JK/SK practice arena with instant feedback and star scoring.
 - Competition arena with round structure and scoring model.
 - Interactive sample leaderboard with simulated score updates.
 - 12-week season timeline.

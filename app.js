@@ -85,9 +85,6 @@ const milestones = [
   "Week 12: Grand Championship Day",
 ];
 
-let currentQuestions = [];
-let totalStars = 0;
-
 function renderTracks() {
   const trackGrid = document.getElementById("trackGrid");
 
@@ -102,106 +99,6 @@ function renderTracks() {
     `;
     trackGrid.append(card);
   });
-}
-
-function renderUnits() {
-  const unitList = document.getElementById("unitList");
-
-  jkSkUnits.forEach((unit) => {
-    const block = document.createElement("div");
-    block.className = "unit-item";
-    block.innerHTML = `
-      <h4>${unit.title}</h4>
-      <p><strong>Goal:</strong> ${unit.goal}</p>
-      <p><strong>Activities:</strong> ${unit.activities}</p>
-    `;
-    unitList.append(block);
-  });
-}
-
-function normalizeValue(value) {
-  return value.toLowerCase().trim().replace(/\s+/g, " ");
-}
-
-function randomizeQuestions(activityKey) {
-  const bank = practiceBanks[activityKey];
-  currentQuestions = [...bank]
-    .sort(() => Math.random() - 0.5)
-    .slice(0, 3);
-}
-
-function renderPracticeForm() {
-  const form = document.getElementById("practiceForm");
-  form.innerHTML = "";
-
-  currentQuestions.forEach((question, index) => {
-    const wrapper = document.createElement("div");
-    wrapper.className = "question-item";
-    wrapper.innerHTML = `
-      <label for="q-${index}">${index + 1}. ${question.prompt}</label>
-      <input id="q-${index}" name="q-${index}" type="text" autocomplete="off" />
-    `;
-    form.append(wrapper);
-  });
-}
-
-function updateStars(stars) {
-  totalStars += stars;
-  document.getElementById("scorePill").textContent = `Stars: ${totalStars}`;
-}
-
-function checkAnswers() {
-  const feedback = document.getElementById("practiceFeedback");
-  let correct = 0;
-
-  currentQuestions.forEach((question, index) => {
-    const input = document.getElementById(`q-${index}`);
-    const userValue = normalizeValue(input.value);
-    const answerValue = normalizeValue(question.answer);
-
-    if (userValue === answerValue) {
-      correct += 1;
-      input.classList.remove("incorrect");
-      input.classList.add("correct");
-    } else {
-      input.classList.remove("correct");
-      input.classList.add("incorrect");
-    }
-  });
-
-  updateStars(correct);
-  feedback.textContent = `You got ${correct}/${currentQuestions.length} correct. Keep going!`;
-}
-
-function setupPracticeArena() {
-  const activitySelect = document.getElementById("activitySelect");
-  const newSetBtn = document.getElementById("newSetBtn");
-  const checkBtn = document.getElementById("checkAnswersBtn");
-
-  const options = [
-    { key: "counting", label: "Counting & Comparing" },
-    { key: "patterns", label: "Pattern Play" },
-    { key: "shapes", label: "Shape Sense" },
-  ];
-
-  options.forEach((option) => {
-    const element = document.createElement("option");
-    element.value = option.key;
-    element.textContent = option.label;
-    activitySelect.append(element);
-  });
-
-  function buildSet() {
-    randomizeQuestions(activitySelect.value);
-    renderPracticeForm();
-    document.getElementById("practiceFeedback").textContent = "";
-  }
-
-  activitySelect.addEventListener("change", buildSet);
-  newSetBtn.addEventListener("click", buildSet);
-  checkBtn.addEventListener("click", checkAnswers);
-
-  buildSet();
 }
 
 function renderLeaderboard() {
@@ -246,8 +143,6 @@ function renderTimeline() {
 }
 
 renderTracks();
-renderUnits();
-setupPracticeArena();
 renderLeaderboard();
 setupScoreSimulation();
 renderTimeline();
