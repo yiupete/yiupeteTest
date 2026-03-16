@@ -49,7 +49,13 @@ Open this URL:
 http://localhost:4173
 ```
 
-### 6) Stop the server when done
+### 6) Try the JK/SK course
+1. Scroll to **“JK/SK Starter Course (Ready to Try)”**.
+2. Pick an activity in **JK/SK Practice Arena**.
+3. Enter answers and click **Check Answers**.
+4. Use **New Question Set** to keep practicing.
+
+### 7) Stop the server when done
 Go back to the terminal and press:
 
 - **Ctrl + C** (Windows/Linux)

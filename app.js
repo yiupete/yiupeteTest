@@ -21,6 +21,47 @@ const gradeTracks = [
   },
 ];
 
+const jkSkUnits = [
+  {
+    title: "Unit 1: Counting Club",
+    goal: "Count, represent, and compare quantities to 10.",
+    activities: "Dot cards, finger counting, build-the-number blocks",
+  },
+  {
+    title: "Unit 2: Pattern Detectives",
+    goal: "Create and extend repeating patterns (AB, AAB, ABB).",
+    activities: "Bead strings, movement patterns, color trains",
+  },
+  {
+    title: "Unit 3: Shape Explorers",
+    goal: "Identify 2D shapes in classroom and home objects.",
+    activities: "Shape hunt, tangram play, sorting circles/squares/triangles",
+  },
+  {
+    title: "Unit 4: Math Story Starters",
+    goal: "Use words like more, fewer, equal in simple math stories.",
+    activities: "Picture prompts, compare two groups, explain thinking",
+  },
+];
+
+const practiceBanks = {
+  counting: [
+    { prompt: "Count: ⭐ ⭐ ⭐ ⭐", answer: "4" },
+    { prompt: "Which is more? 5 apples or 3 apples", answer: "5 apples" },
+    { prompt: "What number comes after 6?", answer: "7" },
+  ],
+  patterns: [
+    { prompt: "Finish the pattern: 🔵 🔴 🔵 🔴 ___", answer: "🔵" },
+    { prompt: "What comes next? clap, stomp, clap, stomp, ___", answer: "clap" },
+    { prompt: "Is this pattern AB or AAB? 🟨 🟩 🟨 🟩", answer: "AB" },
+  ],
+  shapes: [
+    { prompt: "How many sides does a triangle have?", answer: "3" },
+    { prompt: "Which shape is round: circle or square?", answer: "circle" },
+    { prompt: "Name a shape with 4 equal sides.", answer: "square" },
+  ],
+};
+
 const teams = [
   { name: "Maple Minds", division: "Grade 2", points: 468 },
   { name: "North Star Ninjas", division: "Grade 4", points: 512 },

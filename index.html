@@ -17,7 +17,7 @@
         </p>
         <div class="hero__actions">
           <a href="#tracks" class="btn btn--primary">Explore Grade Tracks</a>
-          <a href="#arena" class="btn btn--ghost">See Competition Arena</a>
+          <a href="#jksk-course" class="btn btn--ghost">Try JK/SK Course</a>
         </div>
       </div>
     </header>
@@ -32,7 +32,55 @@
         <div class="grid tracks" id="trackGrid"></div>
       </section>
 
-      <section class="section section--alt" id="arena">
+      <section class="section section--alt" id="jksk-course">
+        <h2>JK/SK Starter Course (Ready to Try)</h2>
+        <p class="section__lead">
+          Use this course immediately with your child: mini-lessons, warm-ups, and a live practice
+          arena with instant feedback.
+        </p>
+
+        <div class="grid jksk-grid">
+          <article class="card">
+            <h3>Course Units</h3>
+            <div id="unitList" class="stack-list"></div>
+          </article>
+
+          <article class="card">
+            <h3>Daily Routine (20 minutes)</h3>
+            <ol class="routine-list">
+              <li><strong>5 min:</strong> Number talk (counting, compare more/less).</li>
+              <li><strong>7 min:</strong> Hands-on task (patterns, sorting, shape hunt).</li>
+              <li><strong>5 min:</strong> Competition round (below).</li>
+              <li><strong>3 min:</strong> Reflection badge (“I kept trying!”).</li>
+            </ol>
+            <p class="small-note">Tip: celebrate effort and explanation, not only right answers.</p>
+          </article>
+        </div>
+
+        <article class="card practice-card">
+          <div class="practice-header">
+            <div>
+              <h3>JK/SK Practice Arena</h3>
+              <p class="small-note">Choose an activity, answer questions, and earn stars.</p>
+            </div>
+            <div class="score-pill" id="scorePill">Stars: 0</div>
+          </div>
+
+          <div class="practice-controls">
+            <label for="activitySelect">Activity:</label>
+            <select id="activitySelect"></select>
+            <button class="btn btn--primary" id="newSetBtn" type="button">New Question Set</button>
+          </div>
+
+          <form id="practiceForm" class="practice-form"></form>
+          <div class="practice-actions">
+            <button class="btn btn--primary" type="button" id="checkAnswersBtn">Check Answers</button>
+          </div>
+          <p id="practiceFeedback" class="practice-feedback" aria-live="polite"></p>
+        </article>
+      </section>
+
+      <section class="section" id="arena">
         <h2>Competition Arena</h2>
         <p class="section__lead">
           Weekly rounds reward effort, strategy, and teamwork—not just speed.
