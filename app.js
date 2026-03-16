@@ -44,58 +44,22 @@ const jkSkUnits = [
   },
 ];
 
-const questionPacks = {
-  counting: {
-    title: "Counting & Comparing Pack",
-    level: "Starter",
-    description: "Count objects, compare groups, and name missing numbers to 10.",
-    questions: [
-      { prompt: "Count: ⭐ ⭐ ⭐ ⭐", answer: "4" },
-      { prompt: "Count: 🍎 🍎 🍎 🍎 🍎 🍎", answer: "6" },
-      { prompt: "Which is more? 5 apples or 3 apples", answer: "5 apples" },
-      { prompt: "Which is fewer? 2 bears or 7 bears", answer: "2 bears" },
-      { prompt: "What number comes after 6?", answer: "7" },
-      { prompt: "What number comes before 5?", answer: "4" },
-      { prompt: "Fill the missing number: 1, 2, __, 4", answer: "3" },
-      { prompt: "Show one more than 8", answer: "9" },
-      { prompt: "Show one less than 10", answer: "9" },
-      { prompt: "Is 7 greater than 4? (yes/no)", answer: "yes" },
-    ],
-  },
-  patterns: {
-    title: "Pattern Play Pack",
-    level: "Starter",
-    description: "Build and extend repeating patterns with colors, sounds, and actions.",
-    questions: [
-      { prompt: "Finish the pattern: 🔵 🔴 🔵 🔴 ___", answer: "🔵" },
-      { prompt: "What comes next? clap, stomp, clap, stomp, ___", answer: "clap" },
-      { prompt: "Is this pattern AB or AAB? 🟨 🟩 🟨 🟩", answer: "AB" },
-      { prompt: "What comes next? ▲ ▲ ○ ▲ ▲ ○ ___", answer: "▲" },
-      { prompt: "Complete: red, blue, red, blue, ___", answer: "red" },
-      { prompt: "Pattern type? jump, jump, spin, jump, jump, spin", answer: "AAB" },
-      { prompt: "What comes next? 🟩 🟩 🟨 🟩 🟩 🟨 ___", answer: "🟩" },
-      { prompt: "Continue: tap, snap, tap, snap, ___", answer: "tap" },
-      { prompt: "Is this repeating? 1,2,3,1,2,3 (yes/no)", answer: "yes" },
-      { prompt: "Fill in: A, B, A, B, ___", answer: "A" },
-    ],
-  },
-  shapes: {
-    title: "Shape Sense Pack",
-    level: "Starter",
-    description: "Recognize and describe common 2D shapes in everyday objects.",
-    questions: [
-      { prompt: "How many sides does a triangle have?", answer: "3" },
-      { prompt: "Which shape is round: circle or square?", answer: "circle" },
-      { prompt: "Name a shape with 4 equal sides.", answer: "square" },
-      { prompt: "A rectangle has how many corners?", answer: "4" },
-      { prompt: "Which has no corners: circle or triangle?", answer: "circle" },
-      { prompt: "Which shape has 3 corners?", answer: "triangle" },
-      { prompt: "Name a shape like a stop sign (octagon/triangle).", answer: "octagon" },
-      { prompt: "Which shape can roll easily: square or circle?", answer: "circle" },
-      { prompt: "Does a square have equal sides? (yes/no)", answer: "yes" },
-      { prompt: "How many sides does a rectangle have?", answer: "4" },
-    ],
-  },
+const practiceBanks = {
+  counting: [
+    { prompt: "Count: ⭐ ⭐ ⭐ ⭐", answer: "4" },
+    { prompt: "Which is more? 5 apples or 3 apples", answer: "5 apples" },
+    { prompt: "What number comes after 6?", answer: "7" },
+  ],
+  patterns: [
+    { prompt: "Finish the pattern: 🔵 🔴 🔵 🔴 ___", answer: "🔵" },
+    { prompt: "What comes next? clap, stomp, clap, stomp, ___", answer: "clap" },
+    { prompt: "Is this pattern AB or AAB? 🟨 🟩 🟨 🟩", answer: "AB" },
+  ],
+  shapes: [
+    { prompt: "How many sides does a triangle have?", answer: "3" },
+    { prompt: "Which shape is round: circle or square?", answer: "circle" },
+    { prompt: "Name a shape with 4 equal sides.", answer: "square" },
+  ],
 };
 
 const teams = [
@@ -121,9 +85,6 @@ const milestones = [
   "Week 12: Grand Championship Day",
 ];
 
-let currentQuestions = [];
-let totalStars = 0;
-
 function renderTracks() {
   const trackGrid = document.getElementById("trackGrid");
 
@@ -138,122 +99,6 @@ function renderTracks() {
     `;
     trackGrid.append(card);
   });
-}
-
-function renderUnits() {
-  const unitList = document.getElementById("unitList");
-
-  jkSkUnits.forEach((unit) => {
-    const block = document.createElement("div");
-    block.className = "unit-item";
-    block.innerHTML = `
-      <h4>${unit.title}</h4>
-      <p><strong>Goal:</strong> ${unit.goal}</p>
-      <p><strong>Activities:</strong> ${unit.activities}</p>
-    `;
-    unitList.append(block);
-  });
-}
-
-function renderQuestionPackCards() {
-  const container = document.getElementById("questionPackList");
-
-  Object.values(questionPacks).forEach((pack) => {
-    const card = document.createElement("div");
-    card.className = "pack-item";
-    card.innerHTML = `
-      <h4>${pack.title}</h4>
-      <p><strong>Level:</strong> ${pack.level}</p>
-      <p>${pack.description}</p>
-      <p><strong>Questions:</strong> ${pack.questions.length}</p>
-    `;
-    container.append(card);
-  });
-}
-
-function normalizeValue(value) {
-  return value.toLowerCase().trim().replace(/\s+/g, " ");
-}
-
-function randomizeQuestions(packKey) {
-  const bank = questionPacks[packKey].questions;
-  currentQuestions = [...bank]
-    .sort(() => Math.random() - 0.5)
-    .slice(0, 5);
-}
-
-function renderPracticeForm() {
-  const form = document.getElementById("practiceForm");
-  form.innerHTML = "";
-
-  currentQuestions.forEach((question, index) => {
-    const wrapper = document.createElement("div");
-    wrapper.className = "question-item";
-    wrapper.innerHTML = `
-      <label for="q-${index}">${index + 1}. ${question.prompt}</label>
-      <input id="q-${index}" name="q-${index}" type="text" autocomplete="off" />
-    `;
-    form.append(wrapper);
-  });
-}
-
-function updateStars(stars) {
-  totalStars += stars;
-  document.getElementById("scorePill").textContent = `Stars: ${totalStars}`;
-}
-
-function checkAnswers() {
-  const feedback = document.getElementById("practiceFeedback");
-  let correct = 0;
-
-  currentQuestions.forEach((question, index) => {
-    const input = document.getElementById(`q-${index}`);
-    const userValue = normalizeValue(input.value);
-    const answerValue = normalizeValue(question.answer);
-
-    if (userValue === answerValue) {
-      correct += 1;
-      input.classList.remove("incorrect");
-      input.classList.add("correct");
-    } else {
-      input.classList.remove("correct");
-      input.classList.add("incorrect");
-    }
-  });
-
-  updateStars(correct);
-  feedback.textContent = `You got ${correct}/${currentQuestions.length} correct. Keep going!`;
-}
-
-function setupPracticeArena() {
-  const activitySelect = document.getElementById("activitySelect");
-  const newSetBtn = document.getElementById("newSetBtn");
-  const checkBtn = document.getElementById("checkAnswersBtn");
-
-  const options = [
-    { key: "counting", label: "Counting & Comparing Pack" },
-    { key: "patterns", label: "Pattern Play Pack" },
-    { key: "shapes", label: "Shape Sense Pack" },
-  ];
-
-  options.forEach((option) => {
-    const element = document.createElement("option");
-    element.value = option.key;
-    element.textContent = option.label;
-    activitySelect.append(element);
-  });
-
-  function buildSet() {
-    randomizeQuestions(activitySelect.value);
-    renderPracticeForm();
-    document.getElementById("practiceFeedback").textContent = "";
-  }
-
-  activitySelect.addEventListener("change", buildSet);
-  newSetBtn.addEventListener("click", buildSet);
-  checkBtn.addEventListener("click", checkAnswers);
-
-  buildSet();
 }
 
 function renderLeaderboard() {
@@ -298,9 +143,6 @@ function renderTimeline() {
 }
 
 renderTracks();
-renderUnits();
-renderQuestionPackCards();
-setupPracticeArena();
 renderLeaderboard();
 setupScoreSimulation();
 renderTimeline();

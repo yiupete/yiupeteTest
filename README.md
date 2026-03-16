@@ -4,8 +4,6 @@ A lightweight front-end concept for a competition-based math program aligned wit
 
 ## Highlights
 - Grade-track overview for JK/SK through Grade 4.
-- New JK/SK starter course with units and a daily routine.
-- Interactive JK/SK practice arena with instant feedback, star scoring, and 3 question packs (10 questions each).
 - Competition arena with round structure and scoring model.
 - Interactive sample leaderboard with simulated score updates.
 - 12-week season timeline.
@@ -53,7 +51,7 @@ http://localhost:4173
 
 ### 6) Try the JK/SK course
 1. Scroll to **“JK/SK Starter Course (Ready to Try)”**.
-2. Review the **Question Packs You Can Try Now** section and pick a pack in **JK/SK Practice Arena**.
+2. Pick an activity in **JK/SK Practice Arena**.
 3. Enter answers and click **Check Answers**.
 4. Use **New Question Set** to keep practicing.
 
