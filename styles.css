@@ -1,0 +1,187 @@
+:root {
+  --bg: #f4f7ff;
+  --surface: #ffffff;
+  --ink: #1b1f3b;
+  --brand: #2d6cdf;
+  --brand-dark: #204da3;
+  --accent: #ffb703;
+  --muted: #5d667f;
+  --border: #dce3f6;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
+  color: var(--ink);
+  background: var(--bg);
+  line-height: 1.5;
+}
+
+.hero {
+  background: radial-gradient(circle at top right, #92b6ff 10%, #2d6cdf 65%);
+  color: #fff;
+  padding: 4.5rem 1.25rem;
+}
+
+.hero__content,
+.section,
+footer {
+  width: min(1040px, 100% - 2rem);
+  margin: 0 auto;
+}
+
+.tag {
+  display: inline-block;
+  padding: 0.4rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+h1,
+h2,
+h3 {
+  margin-top: 0;
+  line-height: 1.2;
+}
+
+h1 {
+  margin: 0.75rem 0;
+  font-size: clamp(2rem, 3.8vw, 3.2rem);
+}
+
+.section {
+  padding: 3.2rem 0;
+}
+
+.section--alt {
+  background: #eef3ff;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.section__lead {
+  color: var(--muted);
+  margin-top: -0.2rem;
+}
+
+.hero__actions {
+  margin-top: 1.6rem;
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 0.72rem 1rem;
+  border-radius: 0.65rem;
+  text-decoration: none;
+  border: 1px solid transparent;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn--primary {
+  background: var(--brand);
+  color: #fff;
+}
+
+.btn--primary:hover {
+  background: var(--brand-dark);
+}
+
+.btn--ghost {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.85);
+}
+
+.grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.tracks {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  padding: 1rem;
+  box-shadow: 0 6px 20px rgba(17, 39, 86, 0.05);
+}
+
+.card ul {
+  margin-bottom: 0;
+  padding-left: 1.1rem;
+}
+
+.card li + li {
+  margin-top: 0.4rem;
+}
+
+.arena-grid {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.leaderboard-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+
+.table-wrap {
+  margin-top: 1rem;
+  overflow-x: auto;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 0.8rem;
+  border-bottom: 1px solid var(--border);
+}
+
+th {
+  background: #f8faff;
+}
+
+.timeline {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.8rem;
+}
+
+.milestone {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 0.9rem;
+  padding: 0.9rem;
+}
+
+footer {
+  padding: 2rem 0 3rem;
+  color: var(--muted);
+}
+
+@media (max-width: 680px) {
+  .hero {
+    padding-top: 3.5rem;
+  }
+}
