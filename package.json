@@ -1,0 +1,9 @@
+{
+  "name": "math-champions-ontario",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Competition-based math app concept for Ontario JK–Grade 4 learners",
+  "scripts": {
+    "preview": "node preview.mjs"
+  }
+}
